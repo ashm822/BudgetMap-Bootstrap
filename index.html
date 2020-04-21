@@ -2,72 +2,121 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags always come first -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-  <!-- Additional CSS must be placed after Bootstrap CSS -->
-  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="effects/mdb.min.css">
 
 
-  <title>HomeCare: Dashboard</title>
-</head>
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
+    <link rel="stylesheet" href="css/styles.two.css" />
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+	
+  
+    <title>AssetMap Login</title>
 
-<!------------ NAVBAR ------------>
-<nav class="navbar navbar-light bg-light">
+    <style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+    
+    .sidenav {
+      height:60%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 6;
+      left: 0;
+      background-color: lightgray;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 20px;
+      margin-top: 80px;
+      
+    }
+    
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+    
+    .sidenav a:hover {
+      color: #57b846;
+;
+    }
+    
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    
 
+    </style>
+    </head>
+
+    
+    <div id="mySidenav" class="sidenav rounded bg-grey z-depth-3">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">About</a>
+      <hr>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
+    
+
+    
+<nav class="navbar navbar-light bg-light z-depth-2">
   <!-- Hamburgericon to open sidenav --> 
-  <button class="navbar-toggler" id="navHamburger" data-activates="slide-out" type="button" data-target="#sideNav"
-      aria-controls="sideNav" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()"><span class="dark-gray-text"><i class="fa fa-bars"></i></span>
-  </button>
-    <a class="navbar-brand" href="#"><img src="img/brand.png" width="300"></a>
-      <form class="form-inline">
+  <button class="navbar-toggler" id="navHamburger" data-activates="slide-out" type="button" data-target="#sideNav" data-toggle="slide-out"
+  aria-controls="sideNav" aria-orientation="vertical" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()"><i class="fa fa-bars"></i>
+</button>
+<a class="navbar-brand" href="#"><img src="img/AMPlogo.png" width="300"></a>
 
-      <!--- Login ICON -------->
-      <ul class="nav navbar-right">
-        <li><a href="#" id="loginBtn"><span class="fa fa-user"></span> Login</a></li>
-      </ul>
-        
-    </form>          
+  <!--- Login ICON -------->
+  <ul class="nav navbar-right">
+    <li><button class="btn btn-success btn-md" id="loginBtn" data-toggle="modal" data-target="#loginModal"><span class="fa fa-user fa-lg mr-2"></span>Sign Up</a></li>
+  </ul>
+           
 </nav>
-
-<!---  SideNav ----->
-<div class="sideNav collapse navbar-collapse" id="sideNav" data-toggle="slide-out">  
-  <div class="nav bg-light p-2">
-    <ul class="nav-item list-unstyled">
-        <li class="nav-item"><a href="#">About</a></li>
-        <li><a href="#">Register</a></li>
-        <li><a href="#">Testinomials</a></li>
-        <li><a href="#">Contact Us</a></li><hr>
-        <li><a href="#">Sign out</a></li>
-    </ul>
-  </div>
-</div>
-
-
-<body>
-  <!-----------  Login modal --------->
-
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myLoginModal" aria-hidden="true">
-    <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
+<div class="modal fade" id="loginModal" tabindex="-3" role="dialog" aria-labelledby="myLoginModal" aria-hidden="true">
+    <div class="modal-dialog cascading-modal modal-avatar modal-md" role="document">
       <!--Content-->
       <div class="modal-content">
         <!--Header-->
         <div class="modal-header mx-auto">
-          <img src="img/logo3.png" alt="avatar" class="rounded-circle img-responsive">
+          <img src="img/logo_test.png" alt="avatar" class="rounded-circle img-responsive">
         </div>
         <!--Body-->
         <div class="modal-body text-center mb-1">
+            <!-- Name Fields -->
+            <div class="form-row">
+                <div class="col">                 
+                    <div class="md-form mb-4">
+                        <input type="text" id="regFormFirstName" class="form-control" placeholder="First name">                      
+                    </div>
+                </div>
 
+                <div class="col">
+                    <div class="md-form mb-4">
+                        <input type="text" id="RegFormLastName" class="form-control" placeholder="Last name" >
+                    </div>
+                </div>
+            </div>
+            <!---  email and pass ---->
           <input type="username" type="text" id="userName" class="form-control form-control-sm validate ml-0"
-            placeholder="Username" required>
+            placeholder="Email" required>
           <label data-error="wrong" data-success="right" for="userName" class="ml-0"></label>
 
           <input type="password" type="text" id="password" class="form-control form-control-sm validate ml-0"
@@ -75,158 +124,88 @@
           <label data-error="wrong" data-success="right" for="password" class="ml-0"></label>
 
           <hr>
+          <!--- modal footer ----->
           <div class="text-center mt-4">
-            <button class="btn btn-primary mt-1">Login <i class="fa fa-sign-in ml-1"></i></button>
-            <button type="button" class="btn btn-grey waves-effect ml-auto" data-dismiss="modal">Close</button>
+            <button class="btn btn-primary">Sign Up <i class="fa fa-sign-in"></i></button>
+            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
           </div>
         </div>
 
       </div>
     </div>
   </div>
-  <!--- Modal Login end --------->
+  <!--- Modal reg end --------->
 
 
-  <div class="container my-5">
+  <!------------  Login Form ------------->
+  <div class="col">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form p-l-55 p-r-55 p-t-140">
+                <span class="login100-form-title">
+                    Login
+                </span>
 
-    <!--Section: Content-->
-    <section class="dark-grey-text text-center">
-      <!-- Section heading -->
-      <h3 class="font-weight-bold black-text mb-4 pb-2">Our Services</h3>
-      <hr class="w-header">
-      <!-- Section description -->
-      <p class="lead text-muted mx-auto mt-4 pt-2 mb-5">It's easy to find the right professional for your home needs.
-        Just click on the tile to view lists of our local service men and women who has years of experence is waiting to give you the best service possible.</p>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
+                    <input class="input100" type="text" name="username" placeholder="Username" required>
 
-      <!--First row-->
-      <div class="row">
-        <div class="col-md-3 mb-4">
-          <!-- Card -->
-          <a href="service.html" class="card hoverable">
-            <!-- Card content -->
-            <div class="card-body my-4">
-              <p><i class="fa fa-cutlery orange-text fa-2x text-muted"></i></p>
-              <h5 class="black-text mb-0">Personal Cook</h5>
-            </div>
-          </a>
+                    \<!-- for custom validation error//tooltip
+                      <div class="invalid-tooltip">
+                      Please choose a unique and valid username.
+                    </div>   -->
+                    
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Please enter password">
+                    <input class="input100" type="password" name="pass" placeholder="Password" required>
+                    
+                </div>
+
+                <div class="text-right p-t-13 p-b-23">
+                    <span class="txt1">
+                        Forgot
+                    </span>
+
+                    <a href="#" class="txt2">
+                        Username / Password?
+                    </a>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <a href="dash.html" type="submit" class="login100-form-btn">
+                        Sign in
+                    </button></a>
+                </div>
+
+                <div class="flex-col-c p-t-60">
+                    <span class="txt1 p-b-9">
+                        Don’t have an account?
+                    </span>
+
+                    <a href="#" class="txt3 mb-2" data-toggle="modal" data-target="#loginModal">
+                        Sign up now
+                    </a>
+                </div>
+            </form>
         </div>
+    </div>
+</div>
 
 
-        <!-- Card -->
-        <div class="col-md-3 mb-4">
-
-          <a href="#!" class="card hoverable">
-            <!-- Card content -->
-            <div class="card-body my-4">
-              <p><i class="fa fa-female pink-text fa-2x text-muted"></i></p>
-              <h5 class="black-text mb-0">Maid Service</h5>
-            </div>
-          </a>
-        </div>
-
-         <!-- Card -->
-        <div class="col-md-3 mb-4">
-         
-          <a href="#!" class="card hoverable">
-          <!-- Card content -->
-            <div class="card-body my-4">
-              <p><i class="fa fa-home purple-text fa-2x text-muted"></i></p>
-              <h5 class="black-text mb-0">Cleaning</h5>
-            </div>
-          </a>
-        </div>
-
-
-        <!-- Card -->
-        <div class="col-md-3 mb-4">  
-
-          <a href="#!" class="card hoverable">
-           <!-- Card content -->
-            <div class="card-body my-4">
-              <p><i class="fa fa-child blue-text fa-2x text-muted"></i></p>
-              <h5 class="black-text mb-0">Babysitter</h5>
-            </div>
-          </a>
-        </div>
-      </div>
-    
-      <!---------------Next CARD Row ------------------------>
-      <div class="row">
-        <div class="col-md-3 mb-4">
-          <!-- Card -->
-          <a href="#!" class="card hoverable">
-            <!-- Card content -->
-            <div class="card-body my-4">
-              <p><i class="fa fa-wheelchair-alt indigo-text fa-2x red-text text-muted"></i></p>
-              <h5 class="black-text mb-0">Caretaker</h5>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3 mb-4">
-         <!-- Card -->
-          <a href="#!" class="card hoverable">
-            <!-- Card content -->
-            <div class="card-body my-4">
-              <p><i class="fa fa-paw fa-2x text-muted"></i></p>
-              <h5 class="black-text mb-0">Dogsitter</h5>
-            </div>
-          </a>
-        </div>
-      
-        <div class="col-md-3 mb-4">
-          <!-- Card -->
-          <a href="#!" class="card hoverable">
-            <!-- Card content -->
-            <div class="card-body my-4">
-              <p><i class="fa fa-building brown-text fa-2x text-muted"></i></p>
-              <h5 class="black-text mb-0">Plumber</h5>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3 mb-4">
-          <!-- Card -->
-          <a href="#!" class="card hoverable">
-            <!-- Card content -->
-            <div class="card-body my-4">
-              <p><i class="fa fa-wrench green-text fa-2x text-muted"></i></p>
-              <h5 class="black-text mb-0">Handyman</h5>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-        <!-----   Search bar  ----------->
-        <div class="container w-50">
-          <div class="col">
-          <div class="input-group pl-0">
-            <div class="input-group-prepend">
-              <span class="input-group-text blue lighten-2" id="searchIcon"><i class="fa fa-search text-white"
-                  aria-hidden="true"></i></span>
-            </div>
-            <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
-          </div>
-        </div>
-       </div>
-        
-
-  <!------------- Footer ---------------->
-  <footer class="fixed-bottom bg-light">
+<!------------- Footer ---------------->
+<footer class="fixed-bottom badge-dark lighten-4">
     <div class="footer-copyright text-center text-black-50 py-3">
       <a class="fb-ic">
-        <i class="fa fa-facebook-f fa-lg blue-text mr-4"> </i>
+        <i class="fa fa-facebook-f fa-lg  mr-4"> </i>
       </a>
       <a class="tw-ic">
         <i class="fa fa-twitter fa-lg mr-4"> </i>
       </a>
       <a class="yt-ic">
-        <i class="fa fa-youtube red-text fa-lg mr-4"> </i>
+        <i class="fa fa-linkedin fa-lg mr-4"> </i>
       </a>
       <a class="ins-ic">
-        <i class="fa fa-instagram fa-lg purple-text"> </i>
+        <i class="fa fa-youtube  fa-lg "> </i>
       </a>
 
       <!-- Copyright -->
@@ -234,29 +213,15 @@
     </div>
 
   </footer>
-  <script>
-    function openNav() {
-            console.log("openNav")
-            document.getElementById("sideNav").style.width = "100%";
-          }
-          
-          /* Close/hide the sidenav */
-          function closeNav() {
-            document.getElementById("sideNav").style.width = "0";
-          }
 
+       
+   
+    
 
-  </script>
-
-
-
-  <!-- jQuery must come first, then Popper.js, then the Bootstrap JavaScript plugins.-->
-  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script src="JS/scripts.js"></script>
+<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+<script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="JS/testjs.js"></script>
 
 </body>
-
-</html>
+</html> 
